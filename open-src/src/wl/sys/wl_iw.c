@@ -1726,6 +1726,8 @@ wl_control_wl_start(struct net_device *dev)
 	dhd_os_start_lock(iw->pub);
 #endif
 	if (g_onoff == G_WLAN_SET_OFF) {
+// Don't restart. (fix from LG kernel 2.6.35 sources)
+#if 0
 		dhd_customer_gpio_wlan_ctrl(WLAN_RESET_ON);
 
 #if defined(BCMLXSDMMC)
@@ -1739,7 +1741,7 @@ wl_control_wl_start(struct net_device *dev)
 #endif
 
 		dhd_dev_init_ioctl(dev);
-
+#endif
 		g_onoff = G_WLAN_SET_ON;
 	}
 	WL_ERROR(("Exited %s \n", __FUNCTION__));
