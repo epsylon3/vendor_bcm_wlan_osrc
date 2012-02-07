@@ -5630,7 +5630,7 @@ wl_iw_set_wpaauth(
 			val = WPA_AUTH_WAPI;
 		WL_WSEC(("%s: %d: setting wpa_auth to %d\n", __FUNCTION__, __LINE__, val));
 		if ((error = dev_wlc_intvar_set(dev, "wpa_auth", val))) {
-			WL_ERROR(("Failed to set 'wpa_auth'iovar\n"));
+			WL_ERROR(("Failed to set 'wpa_auth' iovar\n"));
 			return error;
 		}
 
@@ -5673,7 +5673,7 @@ wl_iw_set_wpaauth(
 			WL_INFORM(("%s: %d: setting wpa_auth to %d\n",
 				__FUNCTION__, __LINE__, val));
 			error = dev_wlc_intvar_set(dev, "wpa_auth", 0);
-			WL_ERROR(("Failed to set 'wpa_auth'iovar\n"));
+			WL_ERROR(("Failed to reset 'wpa_auth' iovar\n"));
 			return error;
 		}
 
