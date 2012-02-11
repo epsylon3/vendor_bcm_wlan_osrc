@@ -3262,6 +3262,12 @@ dhd_dev_init_ioctl(struct net_device *dev)
 }
 
 #ifdef PNO_SUPPORT
+extern int dhd_pno_clean(dhd_pub_t *dhd);
+extern int dhd_pno_enable(dhd_pub_t *dhd, int pfn_enabled);
+extern int dhd_pno_get_status(dhd_pub_t *dhd);
+extern int dhd_pno_set(dhd_pub_t *dhd, wlc_ssid_t* ssids_local, int nssid, ushort scan_fr, \
+                        int pno_repeat, int pno_freq_expo_max);
+
 /* Linux wrapper to call common dhd_pno_clean */
 int
 dhd_dev_pno_reset(struct net_device *dev)

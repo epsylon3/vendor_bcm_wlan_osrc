@@ -36,11 +36,11 @@
 #include <wl_iw.h>
 
 #define WL_ERROR(x) printf x
-#define WL_TRACE(x)
+#define WL_TRACE(x) printk x
 
 #ifdef CONFIG_WIFI_CONTROL_EXPORT
-extern  void bcm_wlan_power_off(int);
-extern  void bcm_wlan_power_on(int);
+extern  void bcm_wlan_power_off(unsigned);
+extern  void bcm_wlan_power_on(unsigned);
 extern char bcm_wlan_mac[ETHER_ADDR_LEN];
 extern  int bcm_wlan_get_irq(void);
 #endif /* CONFIG_WIFI_CONTROL_EXPORT */
@@ -88,6 +88,8 @@ int dhd_customer_oob_irq_map(unsigned long *irq_flags_ptr)
 #ifdef CONFIG_WIFI_CONTROL_FUNC
 	host_oob_irq = wifi_get_irq_number(irq_flags_ptr);
 #endif /* CONFIG_WIFI_CONTROL_FUNC */
+
+	WL_TRACE(("%s: host_oob_irq=%d\n", __FUNCTION__, host_oob_irq));
 
 	return (host_oob_irq);
 }

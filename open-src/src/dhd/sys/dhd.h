@@ -35,7 +35,7 @@
 #define _dhd_h_
 
 #if defined(LINUX)
-#if defined(CHROMIUMOS_COMPAT_WIRELESS)
+#if defined(CHROMIUMOS_COMPAT_WIRELESS) || (LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 39))
 #include <linux/sched.h>
 #endif
 #include <linux/init.h>

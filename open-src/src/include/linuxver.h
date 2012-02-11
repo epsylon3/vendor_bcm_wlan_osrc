@@ -41,6 +41,10 @@
 #endif 
 #include <linux/module.h>
 
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 39))
+#include <linux/semaphore.h>
+#endif
+
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(2, 3, 0))
 
 #ifdef __UNDEF_NO_VERSION__
